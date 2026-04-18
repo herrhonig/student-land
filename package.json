@@ -14,8 +14,9 @@
   "dependencies": {
     "@mantine/core": "^8.3.18",
     "@mantine/hooks": "^8.3.18",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "axios": "1.15.0",
+    "react": "19.2.5",
+    "react-dom": "19.2.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
@@ -23,19 +24,20 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
-    "eslint": "^10.0.1",
+    "eslint": "10.0.1",
     "eslint-config-mantine": "4.0.3",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
+    "json-server": "1.0.0-beta.15",
     "postcss": "^8.5.10",
     "postcss-preset-mantine": "^1.18.0",
     "postcss-simple-vars": "^7.0.1",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.1",
-    "vite": "^8.0.8",
+    "vite": "8.0.8",
     "vite-tsconfig-paths": "6.1.1"
   },
   "license": "ISC",
