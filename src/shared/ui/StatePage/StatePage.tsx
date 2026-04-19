@@ -6,13 +6,13 @@ import type { StatePageProps, VariantMapType } from "./StatePage.types";
 const getIcon = (variant: StatePageProps["variant"]) => {
   switch (variant) {
     case "error":
-      return <AlertCircle size={48} />;
+      return <AlertCircle size={32} />;
 
     case "loading":
       return <Loader size="lg" />;
 
     default:
-      return <Inbox size={48} />;
+      return <Inbox size={32} />;
   }
 };
 
@@ -44,8 +44,10 @@ export const StatePage = ({
 
   return (
     <Stack align="center" justify="center" h={isPage ? "100vh" : 300}>
-      {getIcon(variant)}
-      <Title order={isPage ? 2 : 4}>{title || defaults.title}</Title>
+      <Title order={isPage ? 2 : 4}>
+        {getIcon(variant)}
+        {title || defaults.title}
+      </Title>
       <Text c="dimmed" ta="center">
         {description || defaults.description}
       </Text>

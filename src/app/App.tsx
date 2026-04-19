@@ -1,13 +1,22 @@
 import type { Student } from "@/entitites/student.schema";
 import { $api } from "@/shared/api";
+import { StatePage } from "@/shared/ui/StatePage";
 import { Button } from "@mantine/core";
 import { useEffect, useState } from "react";
 
 export default function App() {
   const [data, setData] = useState<Student[]>([]);
+  const [err, setErr] = useState(false);
   useEffect(() => {
-    $api.get("/students").then((res) => setData(res.data));
+    $api
+      .get("/students")
+      .then((res) => setData(res.data))
+      .catch((err) => setErr(true));
   }, []);
+
+  if (err) {
+    return <StatePage variant="error" size="page" actionText="Обновить" />;
+  }
 
   console.log({ data });
   return <Button>APP</Button>;

@@ -1,7 +1,5 @@
-import { ErrorPage } from "@/shared/ui/ErrorPage";
-import { Button } from "@mantine/core";
+import { StatePage } from "@/shared/ui/StatePage";
 import React, { type ErrorInfo } from "react";
-// import { PageError } from 'widgets/PageError/ui/PageError';
 
 interface Props {
   children: React.ReactNode;
@@ -39,7 +37,11 @@ export class ErrorBoundary extends React.Component<Props, State> {
 
     if (hasError) {
       return (
-        <ErrorPage onReload={this.handleReload} onReset={this.handleReset} />
+        <StatePage
+          variant="error"
+          actionText="Перезагрузить"
+          onAction={this.handleReload}
+        />
       );
     }
 
