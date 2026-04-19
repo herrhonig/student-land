@@ -1,5 +1,6 @@
+import { ErrorPage } from "@/shared/ui/ErrorPage";
+import { Button } from "@mantine/core";
 import React, { Suspense, type ErrorInfo } from "react";
-// import type {ErrorInfo}
 // import { PageError } from 'widgets/PageError/ui/PageError';
 
 interface Props {
@@ -16,24 +17,30 @@ export class ErrorBoundary extends React.Component<Props, State> {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error: Error) {
-    /* После апдейта состояния через getDerivedStateFromError
-         -> вызывается ререндер
-         -> показываем fallback UI (компонент ошибки)
-         */
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.log("error =>", error, errorInfo);
+    console.error("ErrorBoundary: ", error, errorInfo);
   }
+
+  handleReload = () => {
+    window.location.reload();
+  };
+
+  handleReset = () => {
+    this.setState({ hasError: false });
+  };
 
   render() {
     const { hasError } = this.state;
     const { children } = this.props;
 
     if (hasError) {
-      return <Suspense fallback="">Что-то пошло не так :(</Suspense>;
+      return (
+        <ErrorPage onReload={this.handleReload} onReset={this.handleReset} />
+      );
     }
 
     return children;
