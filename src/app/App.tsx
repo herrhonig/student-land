@@ -11,7 +11,7 @@ export default function App() {
     $api
       .get("/students")
       .then((res) => setData(res.data))
-      .catch((err) => setErr(true));
+      .catch(() => setErr(true));
   }, []);
 
   if (err) {

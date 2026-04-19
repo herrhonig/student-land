@@ -2,7 +2,7 @@ import { $api, handleApiError } from "@/shared/api";
 import type { Student } from "./student.schema";
 
 export const studentApi = {
-  getStudents: async (): Promise<Student[]> => {
+  getStudents: async (): Promise<Student[] | undefined> => {
     try {
       const { data } = await $api.get("/students");
       return data;
@@ -11,7 +11,7 @@ export const studentApi = {
     }
   },
 
-  getStudent: async (id: string): Promise<Student> => {
+  getStudent: async (id: string): Promise<Student | undefined> => {
     try {
       const { data } = await $api.get(`/students/${id}`);
       return data;

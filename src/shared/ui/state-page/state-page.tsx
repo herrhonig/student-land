@@ -1,7 +1,6 @@
 import { Button, Stack, Text, Title, Loader } from "@mantine/core";
 import { AlertCircle, Inbox } from "lucide-react";
-
-import type { StatePageProps, VariantMapType } from "./StatePage.types";
+import type { StatePageProps, VariantMapType } from "./state-page.types";
 
 const getIcon = (variant: StatePageProps["variant"]) => {
   switch (variant) {

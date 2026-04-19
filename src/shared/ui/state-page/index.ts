@@ -1,1 +1,1 @@
-export { StatePage } from "./StatePage";
+export { StatePage } from "./state-page";
