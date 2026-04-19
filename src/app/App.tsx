@@ -1,6 +1,6 @@
-import type { Student } from "@/entitites/student.schema";
+import type { Student } from "@/entitites/student/student.schema";
 import { $api } from "@/shared/api";
-import { StatePage } from "@/shared/ui/StatePage";
+import { StatePage } from "@/shared/ui/state-page";
 import { Button } from "@mantine/core";
 import { useEffect, useState } from "react";
 
