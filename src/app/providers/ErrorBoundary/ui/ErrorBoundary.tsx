@@ -1,6 +1,6 @@
 import { ErrorPage } from "@/shared/ui/ErrorPage";
 import { Button } from "@mantine/core";
-import React, { Suspense, type ErrorInfo } from "react";
+import React, { type ErrorInfo } from "react";
 // import { PageError } from 'widgets/PageError/ui/PageError';
 
 interface Props {
