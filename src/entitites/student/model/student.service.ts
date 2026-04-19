@@ -1,40 +1,42 @@
 import { $api, handleApiError } from "@/shared/api";
-import type { Student } from "./student.schema";
+import type { Student } from "../types/student.schema";
 
-export const studentApi = {
-  getStudents: async (): Promise<Student[] | undefined> => {
+export class StudentApi {
+  async getStudents(): Promise<Student[] | undefined> {
     try {
       const { data } = await $api.get("/students");
       return data;
     } catch (error) {
       handleApiError(error);
     }
-  },
+  }
 
-  getStudent: async (id: string): Promise<Student | undefined> => {
+  async getStudent(id: string): Promise<Student | undefined> {
     try {
       const { data } = await $api.get(`/students/${id}`);
       return data;
     } catch (error) {
       handleApiError(error);
     }
-  },
+  }
 
-  updateStudent: async (student: Student) => {
+  async updateStudent(student: Student) {
     try {
       const { data } = await $api.put(`/students/${student.id}`, student);
       return data;
     } catch (error) {
       handleApiError(error);
     }
-  },
+  }
 
-  createStudent: async (student: Omit<Student, "id">) => {
+  async createStudent(student: Omit<Student, "id">) {
     try {
       const { data } = await $api.post(`/students`, student);
       return data;
     } catch (error) {
       handleApiError(error);
     }
-  },
-};
+  }
+}
+
+export const studentService = new StudentApi();

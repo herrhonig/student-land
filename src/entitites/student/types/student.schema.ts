@@ -1,7 +1,7 @@
 export type StudentStatus = "active" | "excluded";
 
 export interface Student {
-  id: number;
+  id: string;
   name: string;
   email: string;
   phone: string;
