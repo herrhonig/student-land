@@ -1,55 +1,78 @@
-// import { AlertCircle, Inbox } from "lucide-react";
-// import type { StatePageProps, VariantMapType } from "./state-page.types";
+import { AlertCircle, Inbox, LoaderCircle } from "lucide-react";
+import type { StatePageProps, VariantMapType } from "./state-page.types";
+import { cn } from "@/shared/lib/cn";
 
-// const getIcon = (variant: StatePageProps["variant"]) => {
-//   switch (variant) {
-//     case "error":
-//       return <AlertCircle size={32} />;
+const getIcon = (variant: StatePageProps["variant"]) => {
+  switch (variant) {
+    case "error":
+      return <AlertCircle size={32} />;
 
-//     case "loading":
-//       return <Loader size="lg" />;
+    case "loading":
+      return <LoaderCircle size="lg" />;
 
-//     default:
-//       return <Inbox size={32} />;
-//   }
-// };
+    default:
+      return <Inbox size={32} />;
+  }
+};
 
-// const variantMap: VariantMapType = {
-//   error: {
-//     title: "Что-то пошло не так",
-//     description: "Попробуйте обновить страницу",
-//   },
-//   empty: {
-//     title: "Ничего не найдено",
-//     description: "Данные отсутствуют",
-//   },
-//   loading: {
-//     title: "Загрузка...",
-//     description: "Пожалуйста подождите",
-//   },
-// };
+const variantMap: VariantMapType = {
+  error: {
+    title: "Что-то пошло не так",
+    description: "Попробуйте обновить страницу",
+  },
+  empty: {
+    title: "Ничего не найдено",
+    description: "Данные отсутствуют",
+  },
+  loading: {
+    title: "Загрузка...",
+    description: "Пожалуйста подождите",
+  },
+};
 
-export const StatePage = ({}) => {};
-//   variant = "empty",
-//   size = "page",
-//   title,
-//   description,
-//   actionText,
-//   onAction,
-// }: StatePageProps) => {
-//   const isPage = size === "page";
-//   const defaults = variantMap[variant];
+export const StatePage = ({
+  variant = "empty",
+  size = "page",
+  title,
+  description,
+  actionText,
+  onAction,
+}: StatePageProps) => {
+  const isPage = size === "page";
+  const defaults = variantMap[variant];
 
-//   return (
-//     <Stack align="center" justify="center" h={isPage ? "100vh" : 300}>
-//       <Title order={isPage ? 2 : 4}>
-//         {getIcon(variant)}
-//         {title || defaults.title}
-//       </Title>
-//       <Text c="dimmed" ta="center">
-//         {description || defaults.description}
-//       </Text>
-//       {actionText && <Button onClick={onAction}>{actionText}</Button>}
-//     </Stack>
-//   );
-// };
+  return (
+    <div
+      className={cn(
+        "flex flex-col items-center justify-center text-center gap-3 px-4",
+        isPage ? "min-h-screen" : "h-[300px]",
+      )}
+    >
+      <h2
+        className={cn(
+          "flex items-center gap-2 font-semibold text-gray-900",
+          isPage ? "text-2xl" : "text-lg",
+        )}
+      >
+        <span className="text-2xl">{getIcon(variant)}</span>
+        {title || defaults.title}
+      </h2>
+
+      <p className="text-sm text-muted-foreground max-w-md">
+        {description || defaults.description}
+      </p>
+
+      {actionText && (
+        <button
+          onClick={onAction}
+          className={cn(
+            "mt-2 px-4 py-2 rounded-md text-sm transition",
+            "bg-black text-white hover:bg-gray-800",
+          )}
+        >
+          {actionText}
+        </button>
+      )}
+    </div>
+  );
+};

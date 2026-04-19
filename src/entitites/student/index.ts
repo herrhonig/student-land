@@ -4,3 +4,5 @@ export {
   useCreateStudent,
   useUpdateStudent,
 } from "./model/student.queries";
+
+export { StudentCard } from "./ui/student-card/card";

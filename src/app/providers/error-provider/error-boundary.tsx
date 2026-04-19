@@ -35,15 +35,15 @@ export class ErrorBoundary extends React.Component<Props, State> {
     const { hasError } = this.state;
     const { children } = this.props;
 
-    // if (hasError) {
-    //   return (
-    //     <StatePage
-    //       variant="error"
-    //       actionText="Перезагрузить"
-    //       onAction={this.handleReload}
-    //     />
-    //   );
-    // }
+    if (hasError) {
+      return (
+        <StatePage
+          variant="error"
+          actionText="Перезагрузить"
+          onAction={this.handleReload}
+        />
+      );
+    }
 
     return children;
   }
