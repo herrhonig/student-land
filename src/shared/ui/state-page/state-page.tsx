@@ -1,4 +1,4 @@
-import { AlertCircle, Inbox, LoaderCircle } from "lucide-react";
+import { AlertCircle, Inbox } from "lucide-react";
 import type { StatePageProps, VariantMapType } from "./state-page.types";
 import { cn } from "@/shared/lib/cn";
 
@@ -8,7 +8,7 @@ const getIcon = (variant: StatePageProps["variant"]) => {
       return <AlertCircle size={16} />;
 
     case "loading":
-      return <LoaderCircle size={16} />;
+      return "";
 
     default:
       return <Inbox size={16} />;
@@ -25,8 +25,8 @@ const variantMap: VariantMapType = {
     description: "Данные отсутствуют",
   },
   loading: {
-    title: "Загрузка...",
-    description: "Пожалуйста подождите",
+    title: "Загрузка",
+    description: "Пожалуйста, подождите",
   },
 };
 
@@ -66,7 +66,7 @@ export const StatePage = ({
         <button
           onClick={onAction}
           className={cn(
-            "mt-2 px-4 py-2 rounded-md text-sm transition",
+            "mt-2 px-4 py-2 rounded-md text-sm transition cursor-pointer",
             "bg-black text-white hover:bg-gray-800",
           )}
         >

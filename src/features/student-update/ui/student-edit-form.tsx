@@ -19,7 +19,7 @@ export const StudentEditForm = ({
 
   const [status, setStatus] = useState(studentStatus);
   const [comment, setComment] = useState(managerComment);
-  const { mutate, isPending } = useUpdateStudent();
+  const { mutate: handleUpdateStudent, isPending } = useUpdateStudent();
 
   const onSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     setStatus(e.target.value as StudentStatus);
@@ -30,7 +30,7 @@ export const StudentEditForm = ({
   };
 
   const onSave = () => {
-    mutate({
+    handleUpdateStudent({
       data: { ...student, status, managerComment: comment },
     });
   };

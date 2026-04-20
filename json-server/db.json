@@ -83,6 +83,18 @@
       "solvedCount": 5,
       "totalTasks": 50,
       "managerComment": "Хороший ученик"
+    },
+    {
+      "name": "Zolo Zolo",
+      "email": "ololol@ya.ru",
+      "phone": "+76666666666",
+      "course": "Python Developer",
+      "status": "active",
+      "registeredAt": "20.04.2026",
+      "solvedCount": 0,
+      "totalTasks": 50,
+      "managerComment": "",
+      "id": "dUkO8htNjd0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
