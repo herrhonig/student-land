@@ -1,5 +1,6 @@
 import { paths } from "@/shared/const/paths";
 import type { Student } from "../../types/student.schema";
+import { dayjs } from "@/shared/lib";
 
 type StudentCardProps = {
   student: Student;
@@ -28,7 +29,7 @@ export const StudentCard = ({ student }: StudentCardProps) => {
       <div className="text-sm text-gray-600 space-y-1">
         <p>Email: {email}</p>
         <p>Course: {course}</p>
-        <p>Registered: {new Date(registeredAt).toLocaleDateString()}</p>
+        <p>Registered: {dayjs(registeredAt).format("DD.MM.YYYY")}</p>
       </div>
 
       <div className="flex justify-end mt-4">

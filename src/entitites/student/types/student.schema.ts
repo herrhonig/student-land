@@ -12,3 +12,9 @@ export interface Student {
   totalTasks: number;
   managerComment: string;
 }
+
+export type CreateStudentDto = Omit<Student, "id">;
+
+export type UpdateStudentDto = Partial<
+  Pick<Student, "status" | "managerComment">
+>;

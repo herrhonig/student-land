@@ -1,14 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useCreateStudent } from "@/entitites/student";
+import { useCreateStudent, type CreateStudentDto } from "@/entitites/student";
 import {
   createStudentSchema,
   type CreateStudentFormData,
 } from "../model/student-create.schema";
-import { Input } from "@/shared/ui/input";
-import { Select } from "@/shared/ui/select";
-import { Button } from "@/shared/ui/button";
+
+import { dayjs } from "@/shared/lib";
+import { Button, Input, Select } from "@/shared/ui";
 
 interface CreateStudentFormProps {
   onSuccess?: () => void;
@@ -33,11 +33,7 @@ export const CreateStudentForm: React.FC<CreateStudentFormProps> = ({
   onSuccess,
   onCancel,
 }) => {
-  const {
-    mutate: handleCreateStudent,
-    isPending,
-    isError,
-  } = useCreateStudent();
+  const { mutate: handleCreateStudent, isError } = useCreateStudent();
 
   const {
     register,
@@ -51,9 +47,9 @@ export const CreateStudentForm: React.FC<CreateStudentFormProps> = ({
   });
 
   const onSubmit = (formData: CreateStudentFormData) => {
-    const newStudent = {
+    const newStudent: CreateStudentDto = {
       ...formData,
-      registeredAt: new Date().toLocaleDateString(),
+      registeredAt: dayjs().format("YYYY-MM-DD"),
       solvedCount: 0,
       totalTasks: 50,
       managerComment: "",
@@ -61,8 +57,8 @@ export const CreateStudentForm: React.FC<CreateStudentFormProps> = ({
 
     console.log({ newStudent });
     handleCreateStudent({
-      data: newStudent,
-      onCb: onSuccess,
+      newStudent,
+      onSuccess,
     });
   };
 
@@ -127,7 +123,7 @@ export const CreateStudentForm: React.FC<CreateStudentFormProps> = ({
           disabled={isSubmitting || !isValid}
           className="flex-1"
         >
-          {isSubmitting ? "Создание..." : "Создать студента"}
+          {isSubmitting ? "Creation..." : "Create"}
         </Button>
 
         {onCancel && (
@@ -138,7 +134,7 @@ export const CreateStudentForm: React.FC<CreateStudentFormProps> = ({
             disabled={isSubmitting}
             className="flex-1"
           >
-            Отмена
+            Cancel
           </Button>
         )}
       </div>
@@ -146,7 +142,7 @@ export const CreateStudentForm: React.FC<CreateStudentFormProps> = ({
       {isError && (
         <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
           <p className="text-sm text-red-600">
-            Ошибка при создании студента. Пожалуйста, попробуйте снова.
+            Error while creating new student. Please, try again.
           </p>
         </div>
       )}

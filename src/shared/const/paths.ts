@@ -1,7 +1,7 @@
 export const paths = {
   home: "/",
   students: {
-    root: "/students",
+    root: "/",
     details: "/students/:id",
     create: "/students/create",
     detailsById: (id: string | number) => `/students/${id}`,

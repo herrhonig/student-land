@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import type { Student } from "../types/student.schema";
+import type { CreateStudentDto, Student } from "../types/student.schema";
 import { studentService } from "./student.service";
 import { queryKeys } from "@/shared/const/query-keys";
 
@@ -29,11 +29,12 @@ export const useCreateStudent = () => {
 
   return useMutation({
     mutationFn: (params: {
-      data: Omit<Student, "id">;
-      onCb?: (data: Student) => void;
-    }) => studentService.createStudent(params.data),
-    onSuccess: (data, variables) => {
-      variables.onCb && variables.onCb(data);
+      newStudent: CreateStudentDto;
+      onSuccess?: (newStundent: Student) => void;
+    }) => studentService.createStudent(params.newStudent),
+    onSuccess: (newStundent, variables) => {
+      variables?.onSuccess && variables.onSuccess(newStundent);
+
       void queryClient.invalidateQueries({
         queryKey: queryKeys.student.all,
       });

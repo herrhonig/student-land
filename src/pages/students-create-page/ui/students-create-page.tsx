@@ -7,5 +7,5 @@ interface StudentsCreatePageProps {}
 export const StudentsCreatePage = ({}: StudentsCreatePageProps) => {
   const navigate = useNavigate();
 
-  return <CreateStudentForm onSuccess={() => navigate(paths.home)} />;
+  return <CreateStudentForm onSuccess={() => navigate(paths.students.root)} />;
 };
