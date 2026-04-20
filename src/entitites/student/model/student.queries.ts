@@ -67,19 +67,3 @@ export const useUpdateStudent = () => {
     },
   });
 };
-
-// export const useDeleteStudent = () => {
-//   const queryClient = useQueryClient();
-
-//   return useMutation({
-//     mutationFn: (params: { id: string; onCb?: () => void }) =>
-//       studentService.deleteStudent(params.id),
-//     onSuccess: (_, variables) => {
-//       variables.onCb && variables.onCb();
-//       void queryClient.invalidateQueries({
-//         queryKey: queryKeys.student.getList(),
-//       });
-//     },
-//     onError: (_error: ResponseError) => {},
-//   });
-// };
