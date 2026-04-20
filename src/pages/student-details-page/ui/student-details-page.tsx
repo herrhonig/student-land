@@ -8,7 +8,7 @@ import { StudentEditForm } from "@/features/student-update";
 
 import { StudentDetails, useGetStudentById } from "@/entitites/student";
 
-export const StudentDetailsPage = () => {
+export const StudentDetailsPage = ({ some }: { some: any }) => {
   const { id = "" } = useParams();
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
