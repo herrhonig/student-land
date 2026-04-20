@@ -1,7 +1,6 @@
 import { StudentCard, useGetStudents } from "@/entitites/student";
 import { paths } from "@/shared/const/paths";
-import { Button } from "@/shared/ui/button";
-import { StatePage } from "@/shared/ui/state-page";
+import { Button, StatePage } from "@/shared/ui";
 import { useNavigate } from "react-router";
 
 type StudentsPageProps = {};
@@ -18,7 +17,7 @@ export const StudentsPage = ({}: StudentsPageProps) => {
     return (
       <StatePage
         variant="empty"
-        actionText="Попробовать снова"
+        actionText="Try again"
         onAction={() => refetch()}
       />
     );

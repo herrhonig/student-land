@@ -1,8 +1,8 @@
-import { StudentDetails, useGetStudentById } from "@/entitites/student";
-import { StudentEditForm } from "@/features/student-update";
-import { StatePage } from "@/shared/ui/state-page";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import { StudentDetails, useGetStudentById } from "@/entitites/student";
+import { StudentEditForm } from "@/features/student-update";
+import { StatePage } from "@/shared/ui";
 
 type StudentDetailsPageProps = {};
 
@@ -11,11 +11,11 @@ export const StudentDetailsPage = ({}: StudentDetailsPageProps) => {
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
 
-  const { data, isLoading, error } = useGetStudentById({ id });
+  const { data: student, isLoading, error } = useGetStudentById({ id });
 
   if (isLoading) return <StatePage variant="loading" size="page" />;
   if (error) return <StatePage variant="error" size="page" />;
-  if (!data) return <StatePage variant="empty" size="page" />;
+  if (!student) return <StatePage variant="empty" size="page" />;
 
   return (
     <div className="space-y-4">
@@ -29,10 +29,16 @@ export const StudentDetailsPage = ({}: StudentDetailsPageProps) => {
       )}
 
       {!isEditing && (
-        <StudentDetails student={data} onClickEdit={() => setIsEditing(true)} />
+        <StudentDetails
+          student={student}
+          onClickEdit={() => setIsEditing(true)}
+        />
       )}
       {isEditing && (
-        <StudentEditForm student={data} onCancel={() => setIsEditing(false)} />
+        <StudentEditForm
+          student={student}
+          onCancel={() => setIsEditing(false)}
+        />
       )}
     </div>
   );

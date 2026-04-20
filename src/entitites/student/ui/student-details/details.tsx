@@ -1,5 +1,5 @@
 import { cn } from "@/shared/lib/cn";
-import type { Student } from "../../types/student.schema";
+import type { Student } from "../../types/student";
 
 type StudentDetailsProps = {
   student: Student;

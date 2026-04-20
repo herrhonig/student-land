@@ -108,6 +108,5 @@
       "managerComment": "",
       "id": "_YTZqEZZSQQ"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }

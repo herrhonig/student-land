@@ -16,7 +16,7 @@ interface CreateStudentFormProps {
 }
 
 const courseOptions = [
-  { value: "", label: "Choose a course" },
+  { value: "", label: "Choose course" },
   { value: "React Developer", label: "React Developer" },
   { value: "Fullstack JS", label: "Fullstack JS" },
   { value: "Python Developer", label: "Python Developer" },
@@ -25,8 +25,8 @@ const courseOptions = [
 
 const statusOptions = [
   { value: "", label: "Choose status" },
-  { value: "active", label: "Активный" },
-  { value: "excluded", label: "Исключен" },
+  { value: "active", label: "Active" },
+  { value: "excluded", label: "Excluded" },
 ];
 
 export const CreateStudentForm: React.FC<CreateStudentFormProps> = ({
@@ -55,7 +55,6 @@ export const CreateStudentForm: React.FC<CreateStudentFormProps> = ({
       managerComment: "",
     };
 
-    console.log({ newStudent });
     handleCreateStudent({
       newStudent,
       onSuccess,

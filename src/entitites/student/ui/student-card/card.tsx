@@ -1,5 +1,5 @@
 import { paths } from "@/shared/const/paths";
-import type { Student } from "../../types/student.schema";
+import type { Student } from "../../types/student";
 import { dayjs } from "@/shared/lib";
 
 type StudentCardProps = {

@@ -1,5 +1,5 @@
 import { $api, handleApiError } from "@/shared/api";
-import type { Student } from "../types/student.schema";
+import type { Student } from "../types/student";
 
 export class StudentApi {
   async getStudents(): Promise<Student[] | undefined> {

@@ -1,4 +1,4 @@
-import { StatePage } from "@/shared/ui/state-page";
+import { StatePage } from "@/shared/ui";
 import React, { type ErrorInfo } from "react";
 
 interface Props {
