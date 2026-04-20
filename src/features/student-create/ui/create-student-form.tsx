@@ -10,7 +10,7 @@ import {
   createStudentSchema,
 } from "../model/student-create.schema";
 
-import { type CreateStudentDto,useCreateStudent } from "@/entitites/student";
+import { type CreateStudentDto, useCreateStudent } from "@/entitites/student";
 
 interface CreateStudentFormProps {
   onSuccess?: () => void;

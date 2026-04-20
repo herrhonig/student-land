@@ -10,7 +10,12 @@ export const $api = axios.create({
 /** force delay middleware: */
 $api.interceptors.request.use(async (config) => {
   if (import.meta.env.DEV) {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) =>
+      setTimeout(
+        resolve,
+        Number(import.meta.env.VITE_API_REQUEST_DELAY ?? 1000),
+      ),
+    );
   }
   return config;
 });
