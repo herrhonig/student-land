@@ -9,7 +9,6 @@ export const useStudentsQueryParams = () => {
 
   const updateParams = (next: Record<string, string>) => {
     const newParams = new URLSearchParams(params);
-    console.log({ next });
 
     Object.entries(next).forEach(([key, value]) => {
       if (value === "all" || value === "") {
