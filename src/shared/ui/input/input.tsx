@@ -15,24 +15,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="mb-1 block text-sm font-medium text-gray-700"
           >
             {label}
-            {props.required && <span className="text-red-500 ml-1">*</span>}
+            {props.required && <span className="ml-1 text-red-500">*</span>}
           </label>
         )}
 
         <input
           ref={ref}
           id={inputId}
-          className={`
-            w-full px-3 py-2 border rounded-lg 
-            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-            transition-colors duration-200
-            disabled:bg-gray-100 disabled:cursor-not-allowed
-            ${error ? "border-red-500 focus:ring-red-500" : "border-gray-300"}
-            ${className}
-          `}
+          className={`w-full rounded-lg border px-3 py-2 transition-colors duration-200 focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100 ${error ? "border-red-500 focus:ring-red-500" : "border-gray-300"} ${className} `}
           aria-invalid={!!error}
           aria-describedby={
             error

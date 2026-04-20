@@ -11,7 +11,9 @@
     "preview": "vite preview",
     "server": "json-server json-server/db.json --port 3005",
     "lint": "eslint \"**/*.{ts,tsx}\"",
-    "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix"
+    "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "dependencies": {
     "@hookform/resolvers": "5.2.2",
@@ -47,6 +49,8 @@
     "globals": "^17.5.0",
     "json-server": "1.0.0-beta.15",
     "postcss": "8.5.10",
+    "prettier": "3.8.3",
+    "prettier-plugin-tailwindcss": "0.7.2",
     "tailwindcss": "4.2.2",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.58.1",
