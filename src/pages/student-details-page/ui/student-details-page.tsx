@@ -24,7 +24,7 @@ export const StudentDetailsPage = () => {
       {!isEditing && (
         <button
           onClick={() => navigate(paths.students.root)}
-          className="text-md text-muted-foreground hover:text-foreground transition cursor-pointer"
+          className="text-md text-muted-foreground hover:text-foreground cursor-pointer transition"
         >
           ← Back to students
         </button>

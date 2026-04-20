@@ -12,8 +12,8 @@
     "server": "json-server json-server/db.json --port 3005",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format": "prettier \"**/*.{ts,tsx}\" --write",
+    "format:check": "prettier \"**/*.{ts,tsx}\" --check"
   },
   "dependencies": {
     "@hookform/resolvers": "5.2.2",

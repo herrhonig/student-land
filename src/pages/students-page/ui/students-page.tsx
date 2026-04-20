@@ -44,19 +44,19 @@ export const StudentsPage = () => {
 
   return (
     <div className="space-y-4">
-      <div className="flex justify-between items-center px-6 pt-6">
+      <div className="flex items-center justify-between px-6 pt-6">
         <h1 className="text-xl font-semibold">Students</h1>
         <Button onClick={() => navigate(paths.students.create)}>
           Add student
         </Button>
       </div>
 
-      <div className="grid  gap-3 px-6">
+      <div className="grid gap-3 px-6">
         <Input
           value={search}
           onChange={(e) => updateParams({ search: e.target.value })}
           placeholder="Search by name..."
-          className="w-8 border px-3 py-2 rounded-md max-md:w-full"
+          className="w-8 rounded-md border px-3 py-2 max-md:w-full"
         />
         <div className="max-w-sm">
           <Select
@@ -67,7 +67,7 @@ export const StudentsPage = () => {
               { label: "Excluded", value: "excluded" },
             ]}
             onChange={(e) => updateParams({ status: e.target.value })}
-            className="border px-3 py-2 rounded-md"
+            className="rounded-md border px-3 py-2"
           />
 
           <Select
@@ -77,12 +77,12 @@ export const StudentsPage = () => {
               { label: "Oldest", value: "asc" },
             ]}
             onChange={(e) => updateParams({ sort: e.target.value })}
-            className="border px-3 py-2 rounded-md"
+            className="rounded-md border px-3 py-2"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
+      <div className="grid grid-cols-1 gap-4 p-6 md:grid-cols-2 lg:grid-cols-3">
         {filteredStudents.map((student) => (
           <StudentCard key={student.id} student={student} />
         ))}

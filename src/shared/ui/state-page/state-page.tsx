@@ -46,7 +46,7 @@ export const StatePage = ({
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center text-center gap-3 px-4",
+        "flex flex-col items-center justify-center gap-3 px-4 text-center",
         isPage ? "min-h-screen" : "h-[300px]",
       )}
     >
@@ -60,7 +60,7 @@ export const StatePage = ({
         {title || defaults.title}
       </h2>
 
-      <p className="text-sm text-muted-foreground max-w-md">
+      <p className="text-muted-foreground max-w-md text-sm">
         {description || defaults.description}
       </p>
 
@@ -68,7 +68,7 @@ export const StatePage = ({
         <button
           onClick={onAction}
           className={cn(
-            "mt-2 px-4 py-2 rounded-md text-sm transition cursor-pointer",
+            "mt-2 cursor-pointer rounded-md px-4 py-2 text-sm transition",
             "bg-black text-white hover:bg-gray-800",
           )}
         >

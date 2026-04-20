@@ -1,4 +1,4 @@
-import { type ChangeEvent,useState } from "react";
+import { type ChangeEvent, useState } from "react";
 
 import { cn } from "@/shared/lib";
 
@@ -38,19 +38,19 @@ export const StudentEditForm = ({
   };
 
   return (
-    <div className="max-w-2xl mx-auto border rounded-xl p-6 space-y-6 bg-background">
+    <div className="bg-background mx-auto max-w-2xl space-y-6 rounded-xl border p-6">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">Edit student</h2>
       </div>
 
       <div className="space-y-1">
-        <label className="text-sm text-muted-foreground">Status</label>
+        <label className="text-muted-foreground text-sm">Status</label>
         <select
           value={status}
           onChange={onSelect}
           className={cn(
-            "w-full rounded-md border bg-background px-3 py-2 text-sm",
-            "focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black",
+            "bg-background w-full rounded-md border px-3 py-2 text-sm",
+            "focus:border-black focus:ring-2 focus:ring-black/20 focus:outline-none",
           )}
         >
           <option value="active">Active</option>
@@ -59,16 +59,16 @@ export const StudentEditForm = ({
       </div>
 
       <div className="space-y-1">
-        <label className="text-sm text-muted-foreground">Manager comment</label>
+        <label className="text-muted-foreground text-sm">Manager comment</label>
         <textarea
           value={comment}
           onChange={onCommentChange}
           rows={5}
           maxLength={900}
           className={cn(
-            "w-full rounded-md border bg-background px-3 py-2 text-sm",
+            "bg-background w-full rounded-md border px-3 py-2 text-sm",
             "resize-none",
-            "focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black",
+            "focus:border-black focus:ring-2 focus:ring-black/20 focus:outline-none",
           )}
         />
       </div>
@@ -77,7 +77,7 @@ export const StudentEditForm = ({
         <button
           onClick={onCancel}
           className={cn(
-            "px-4 py-2 text-sm rounded-md border",
+            "rounded-md border px-4 py-2 text-sm",
             "hover:bg-muted transition",
           )}
         >
@@ -88,9 +88,9 @@ export const StudentEditForm = ({
           onClick={onSave}
           disabled={isPending}
           className={cn(
-            "px-4 py-2 text-sm rounded-md bg-black text-white",
-            "hover:bg-gray-800 transition",
-            "disabled:opacity-50 disabled:cursor-not-allowed",
+            "rounded-md bg-black px-4 py-2 text-sm text-white",
+            "transition hover:bg-gray-800",
+            "disabled:cursor-not-allowed disabled:opacity-50",
           )}
         >
           {isPending ? "Saving..." : "Save changes"}

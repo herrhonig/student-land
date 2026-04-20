@@ -27,19 +27,19 @@ export const StudentDetails = ({
       : 0;
 
   return (
-    <div className="max-w-3xl mx-auto p-6 space-y-6">
+    <div className="mx-auto max-w-3xl space-y-6 p-6">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-foreground">
+          <h1 className="text-foreground text-2xl font-semibold">
             {student.name}
           </h1>
-          <p className="text-sm text-muted-foreground">{student.email}</p>
+          <p className="text-muted-foreground text-sm">{student.email}</p>
         </div>
 
         <div className="flex gap-2">
           <span
             className={cn(
-              "text-xs px-3 py-1 rounded-full border",
+              "rounded-full border px-3 py-1 text-xs",
               statusStyles[student.status],
             )}
           >
@@ -47,14 +47,14 @@ export const StudentDetails = ({
           </span>
           <button
             onClick={onClickEdit}
-            className="px-3 py-1 text-sm rounded-md bg-black text-white hover:bg-gray-800 cursor-pointer"
+            className="cursor-pointer rounded-md bg-black px-3 py-1 text-sm text-white hover:bg-gray-800"
           >
             Edit
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Info label="Phone" value={student.phone} />
         <Info label="Course" value={student.course} />
         <Info
@@ -72,16 +72,16 @@ export const StudentDetails = ({
           <span className="text-muted-foreground">Progress:</span>
           <span className="font-medium">{progress}%</span>
         </div>
-        <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+        <div className="bg-muted h-2 w-full overflow-hidden rounded-full">
           <div className="h-full bg-black" style={{ width: `${progress}%` }} />
         </div>
       </div>
 
       <div className="space-y-2">
-        <h2 className="text-sm font-medium text-muted-foreground">
+        <h2 className="text-muted-foreground text-sm font-medium">
           Manager comment
         </h2>
-        <div className="rounded-lg border bg-muted/30 p-3 text-sm text-foreground">
+        <div className="bg-muted/30 text-foreground rounded-lg border p-3 text-sm">
           {student.managerComment || "No comment yet"}
         </div>
       </div>
@@ -92,9 +92,9 @@ export const StudentDetails = ({
 /* reusable block */
 const Info = ({ label, value }: { label: string; value: string }) => {
   return (
-    <div className="rounded-lg border bg-background p-3">
-      <div className="text-xs text-muted-foreground">{label}</div>
-      <div className="text-sm font-medium text-foreground">{value}</div>
+    <div className="bg-background rounded-lg border p-3">
+      <div className="text-muted-foreground text-xs">{label}</div>
+      <div className="text-foreground text-sm font-medium">{value}</div>
     </div>
   );
 };

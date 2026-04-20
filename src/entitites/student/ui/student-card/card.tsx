@@ -16,27 +16,27 @@ export const StudentCard = ({ student }: StudentCardProps) => {
   const { id, registeredAt, name, status, email, course } = student;
 
   return (
-    <div className="rounded-xl border bg-white p-4 shadow-sm hover:shadow-md transition">
-      <div className="flex items-center justify-between mb-3">
+    <div className="rounded-xl border bg-white p-4 shadow-sm transition hover:shadow-md">
+      <div className="mb-3 flex items-center justify-between">
         <h3 className="text-lg font-semibold">{name}</h3>
 
         <span
-          className={`text-xs px-2 py-1 rounded-full ${statusStyles[status]}`}
+          className={`rounded-full px-2 py-1 text-xs ${statusStyles[status]}`}
         >
           {status}
         </span>
       </div>
 
-      <div className="text-sm text-gray-600 space-y-1">
+      <div className="space-y-1 text-sm text-gray-600">
         <p>Email: {email}</p>
         <p>Course: {course}</p>
         <p>Registered: {dayjs(registeredAt).format("DD.MM.YYYY")}</p>
       </div>
 
-      <div className="flex justify-end mt-4">
+      <div className="mt-4 flex justify-end">
         <a
           href={`${paths.students.detailsById(id)}`}
-          className="px-3 py-1 text-sm rounded-md bg-black text-white hover:bg-gray-800"
+          className="rounded-md bg-black px-3 py-1 text-sm text-white hover:bg-gray-800"
         >
           Open
         </a>
