@@ -4,7 +4,6 @@ import {
   type Student,
   type StudentStatus,
 } from "@/entitites/student";
-
 import { cn } from "@/shared/lib";
 
 type StudentEditFormProps = {
