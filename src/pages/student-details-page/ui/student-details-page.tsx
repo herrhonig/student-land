@@ -3,10 +3,9 @@ import { useNavigate, useParams } from "react-router";
 import { StudentDetails, useGetStudentById } from "@/entitites/student";
 import { StudentEditForm } from "@/features/student-update";
 import { StatePage } from "@/shared/ui";
+import { paths } from "@/shared/const/paths";
 
-type StudentDetailsPageProps = {};
-
-export const StudentDetailsPage = ({}: StudentDetailsPageProps) => {
+export const StudentDetailsPage = () => {
   const { id = "" } = useParams();
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
@@ -21,8 +20,8 @@ export const StudentDetailsPage = ({}: StudentDetailsPageProps) => {
     <div className="space-y-4">
       {!isEditing && (
         <button
-          onClick={() => navigate("/")}
-          className="text-md text-muted-foreground hover:text-foreground transition"
+          onClick={() => navigate(paths.students.root)}
+          className="text-md text-muted-foreground hover:text-foreground transition cursor-pointer"
         >
           ← Back to students
         </button>

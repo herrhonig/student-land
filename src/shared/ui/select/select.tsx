@@ -1,4 +1,6 @@
-import React, { forwardRef, useId } from "react";
+import React, { forwardRef } from "react";
+import { ChevronDown } from "lucide-react";
+import { cn } from "@/shared/lib";
 
 interface Option {
   value: string;
@@ -20,7 +22,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       options,
       error,
       helperText,
-      placeholder = "Выберите...",
+      placeholder = "Choose...",
       className = "",
       id,
       required,
@@ -28,10 +30,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     },
     ref,
   ) => {
-    const selectId = id || useId();
+    const selectId = id;
 
     return (
-      <div className="mb-4">
+      <div className="w-full mb-4">
         {label && (
           <label
             htmlFor={selectId}
@@ -42,52 +44,42 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </label>
         )}
 
-        <select
-          ref={ref}
-          id={selectId}
-          className={`
-            w-full px-3 py-2 border rounded-lg 
-            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-            transition-colors duration-200
-            disabled:bg-gray-100 disabled:cursor-not-allowed
-            appearance-none
-            bg-white
-            ${error ? "border-red-500 focus:ring-red-500" : "border-gray-300"}
-            ${className}
-          `}
-          aria-invalid={!!error}
-          aria-describedby={
-            error
-              ? `${selectId}-error`
-              : helperText
-                ? `${selectId}-helper`
-                : undefined
-          }
-          required={required}
-          {...props}
-        >
-          {placeholder && (
-            <option value="" disabled>
-              {placeholder}
-            </option>
-          )}
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-
         <div className="relative">
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-            <svg
-              className="fill-current h-4 w-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-            </svg>
-          </div>
+          <select
+            ref={ref}
+            id={selectId}
+            className={cn(
+              "w-full appearance-none rounded-lg border bg-white px-3 py-2 pr-10 text-sm text-gray-900 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed",
+              error
+                ? "border-red-500 focus:ring-red-500 focus:border-red-500"
+                : "border-gray-300",
+              className,
+            )}
+            aria-invalid={!!error}
+            aria-describedby={
+              error
+                ? `${selectId}-error`
+                : helperText
+                  ? `${selectId}-helper`
+                  : undefined
+            }
+            required={required}
+            {...props}
+          >
+            {placeholder && (
+              <option value="" disabled>
+                {placeholder}
+              </option>
+            )}
+
+            {options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+
+          <ChevronDown className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500 pointer-events-none" />
         </div>
 
         {error && (

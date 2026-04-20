@@ -20,6 +20,5 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
-    tsconfigRootDir: import.meta.dirname,
   },
 ]);

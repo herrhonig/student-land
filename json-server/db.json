@@ -18,7 +18,7 @@
       "email": "maria@test.com",
       "phone": "+79990000002",
       "course": "Vue",
-      "status": "active",
+      "status": "excluded",
       "registeredAt": "2024-02-15",
       "solvedCount": 25,
       "totalTasks": 50,
@@ -101,12 +101,13 @@
       "email": "ololol@ya.ru",
       "phone": "+76666666666",
       "course": "DevOps Engineer",
-      "status": "active",
+      "status": "excluded",
       "registeredAt": "2026-04-20",
       "solvedCount": 0,
       "totalTasks": 50,
-      "managerComment": "",
+      "managerComment": "Too bad :(",
       "id": "_YTZqEZZSQQ"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

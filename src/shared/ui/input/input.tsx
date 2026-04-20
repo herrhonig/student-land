@@ -1,4 +1,4 @@
-import React, { forwardRef, useId } from "react";
+import React, { forwardRef } from "react";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -8,7 +8,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, helperText, className = "", id, ...props }, ref) => {
-    const inputId = id || useId();
+    const inputId = id;
 
     return (
       <div className="mb-4">

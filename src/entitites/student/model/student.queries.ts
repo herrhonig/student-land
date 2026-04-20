@@ -33,7 +33,7 @@ export const useCreateStudent = () => {
       onSuccess?: (newStundent: Student) => void;
     }) => studentService.createStudent(params.newStudent),
     onSuccess: (newStundent, variables) => {
-      variables?.onSuccess && variables.onSuccess(newStundent);
+      if (variables?.onSuccess) variables.onSuccess(newStundent);
 
       void queryClient.invalidateQueries({
         queryKey: queryKeys.student.all,
