@@ -42,11 +42,11 @@
       "email": "ivan@test.com",
       "phone": "+799999999",
       "course": "React",
-      "status": "excluded",
+      "status": "active",
       "registeredAt": "2024-01-01",
       "solvedCount": 5,
       "totalTasks": 50,
-      "managerComment": "Хороший ученик"
+      "managerComment": "Хороший ученик!!!!!"
     },
     {
       "id": "5",
@@ -84,5 +84,6 @@
       "totalTasks": 50,
       "managerComment": "Хороший ученик"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -3,6 +3,7 @@ import type { Student } from "../../types/student.schema";
 
 type StudentDetailsProps = {
   student: Student;
+  onClickEdit: () => void;
 };
 
 const statusStyles: Record<Student["status"], string> = {
@@ -15,7 +16,10 @@ const statusLabel: Record<Student["status"], string> = {
   excluded: "Excluded",
 };
 
-export const StudentDetails = ({ student }: StudentDetailsProps) => {
+export const StudentDetails = ({
+  student,
+  onClickEdit,
+}: StudentDetailsProps) => {
   const progress =
     student.totalTasks > 0
       ? Math.round((student.solvedCount / student.totalTasks) * 100)
@@ -28,18 +32,25 @@ export const StudentDetails = ({ student }: StudentDetailsProps) => {
           <h1 className="text-2xl font-semibold text-foreground">
             {student.name}
           </h1>
-
           <p className="text-sm text-muted-foreground">{student.email}</p>
         </div>
 
-        <span
-          className={cn(
-            "text-xs px-3 py-1 rounded-full border",
-            statusStyles[student.status],
-          )}
-        >
-          {statusLabel[student.status]}
-        </span>
+        <div className="flex gap-2">
+          <span
+            className={cn(
+              "text-xs px-3 py-1 rounded-full border",
+              statusStyles[student.status],
+            )}
+          >
+            {statusLabel[student.status]}
+          </span>
+          <button
+            onClick={onClickEdit}
+            className="px-3 py-1 text-sm rounded-md bg-black text-white hover:bg-gray-800 cursor-pointer"
+          >
+            Edit
+          </button>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

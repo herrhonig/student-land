@@ -1,5 +1,7 @@
 import { StudentDetails, useGetStudentById } from "@/entitites/student";
+import { StudentEditForm } from "@/features/student-update";
 import { StatePage } from "@/shared/ui/state-page";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 
 type StudentDetailsPageProps = {};
@@ -7,6 +9,7 @@ type StudentDetailsPageProps = {};
 export const StudentDetailsPage = ({}: StudentDetailsPageProps) => {
   const { id = "" } = useParams();
   const navigate = useNavigate();
+  const [isEditing, setIsEditing] = useState(false);
 
   const { data, isLoading, error } = useGetStudentById({ id });
 
@@ -16,14 +19,21 @@ export const StudentDetailsPage = ({}: StudentDetailsPageProps) => {
 
   return (
     <div className="space-y-4">
-      <button
-        onClick={() => navigate("/")}
-        className="text-md text-muted-foreground hover:text-foreground transition"
-      >
-        ← Back to students
-      </button>
+      {!isEditing && (
+        <button
+          onClick={() => navigate("/")}
+          className="text-md text-muted-foreground hover:text-foreground transition"
+        >
+          ← Back to students
+        </button>
+      )}
 
-      <StudentDetails student={data} />
+      {!isEditing && (
+        <StudentDetails student={data} onClickEdit={() => setIsEditing(true)} />
+      )}
+      {isEditing && (
+        <StudentEditForm student={data} onCancel={() => setIsEditing(false)} />
+      )}
     </div>
   );
 };
