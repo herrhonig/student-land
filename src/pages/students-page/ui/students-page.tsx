@@ -1,10 +1,13 @@
-import { useNavigate } from "react-router";
-import { StudentCard, useGetStudents } from "@/entitites/student";
-import { paths } from "@/shared/const/paths";
-import { Button, Input, Select, StatePage } from "@/shared/ui";
-import { dayjs } from "@/shared/lib";
-import { useStudentsQueryParams } from "../model/hooks/query-params.hook";
 import { useMemo } from "react";
+import { useNavigate } from "react-router";
+
+import { paths } from "@/shared/const/paths";
+import { dayjs } from "@/shared/lib";
+import { Button, Input, Select, StatePage } from "@/shared/ui";
+
+import { useStudentsQueryParams } from "../model/hooks/query-params.hook";
+
+import { StudentCard, useGetStudents } from "@/entitites/student";
 
 export const StudentsPage = () => {
   const navigate = useNavigate();

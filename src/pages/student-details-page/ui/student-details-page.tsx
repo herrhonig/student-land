@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { StudentDetails, useGetStudentById } from "@/entitites/student";
-import { StudentEditForm } from "@/features/student-update";
-import { StatePage } from "@/shared/ui";
+
 import { paths } from "@/shared/const/paths";
+import { StatePage } from "@/shared/ui";
+
+import { StudentEditForm } from "@/features/student-update";
+
+import { StudentDetails, useGetStudentById } from "@/entitites/student";
 
 export const StudentDetailsPage = () => {
   const { id = "" } = useParams();

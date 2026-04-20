@@ -1,14 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useCreateStudent, type CreateStudentDto } from "@/entitites/student";
-import {
-  createStudentSchema,
-  type CreateStudentFormData,
-} from "../model/student-create.schema";
 
 import { dayjs } from "@/shared/lib";
 import { Button, Input, Select } from "@/shared/ui";
+
+import {
+  type CreateStudentFormData,
+  createStudentSchema,
+} from "../model/student-create.schema";
+
+import { type CreateStudentDto,useCreateStudent } from "@/entitites/student";
 
 interface CreateStudentFormProps {
   onSuccess?: () => void;

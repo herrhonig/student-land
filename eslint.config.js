@@ -17,8 +17,10 @@ export default defineConfig([
       tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
-      simpleImportSortPlugin,
     ],
+    plugins: {
+      "simple-import-sort": simpleImportSortPlugin,
+    },
     rules: {
       "simple-import-sort/imports": [
         "error",

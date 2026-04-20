@@ -1,4 +1,5 @@
 import { cn } from "@/shared/lib/cn";
+
 import type { Student } from "../../types/student";
 
 type StudentDetailsProps = {

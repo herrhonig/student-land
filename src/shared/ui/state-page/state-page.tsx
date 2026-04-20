@@ -1,6 +1,8 @@
 import { AlertCircle, Inbox } from "lucide-react";
-import type { StatePageProps, VariantMapType } from "./state-page.types";
+
 import { cn } from "@/shared/lib/cn";
+
+import type { StatePageProps, VariantMapType } from "./state-page.types";
 
 const getIcon = (variant: StatePageProps["variant"]) => {
   switch (variant) {

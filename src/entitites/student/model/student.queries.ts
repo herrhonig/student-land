@@ -1,7 +1,9 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+
+import { queryKeys } from "@/shared/const/query-keys";
+
 import type { CreateStudentDto, Student } from "../types/student";
 import { studentService } from "./student.service";
-import { queryKeys } from "@/shared/const/query-keys";
 
 export const useGetStudents = () => {
   return useQuery({

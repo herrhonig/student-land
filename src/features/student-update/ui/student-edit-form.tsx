@@ -1,10 +1,12 @@
-import { useState, type ChangeEvent } from "react";
+import { type ChangeEvent,useState } from "react";
+
+import { cn } from "@/shared/lib";
+
 import {
-  useUpdateStudent,
   type Student,
   type StudentStatus,
+  useUpdateStudent,
 } from "@/entitites/student";
-import { cn } from "@/shared/lib";
 
 type StudentEditFormProps = {
   student: Student;

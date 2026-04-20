@@ -1,5 +1,6 @@
-import { StatePage } from "@/shared/ui";
 import React, { type ErrorInfo } from "react";
+
+import { StatePage } from "@/shared/ui";
 
 interface Props {
   children: React.ReactNode;
