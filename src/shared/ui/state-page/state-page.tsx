@@ -5,13 +5,13 @@ import { cn } from "@/shared/lib/cn";
 const getIcon = (variant: StatePageProps["variant"]) => {
   switch (variant) {
     case "error":
-      return <AlertCircle size={32} />;
+      return <AlertCircle size={16} />;
 
     case "loading":
-      return <LoaderCircle size="lg" />;
+      return <LoaderCircle size={16} />;
 
     default:
-      return <Inbox size={32} />;
+      return <Inbox size={16} />;
   }
 };
 

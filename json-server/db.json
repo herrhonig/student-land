@@ -42,7 +42,7 @@
       "email": "ivan@test.com",
       "phone": "+799999999",
       "course": "React",
-      "status": "active",
+      "status": "excluded",
       "registeredAt": "2024-01-01",
       "solvedCount": 5,
       "totalTasks": 50,
@@ -58,7 +58,7 @@
       "registeredAt": "2024-01-01",
       "solvedCount": 5,
       "totalTasks": 50,
-      "managerComment": "Хороший ученик"
+      "managerComment": "Хороший ученик! Моя школа!"
     },
     {
       "id": "6",
