@@ -1,9 +1,8 @@
-# student-land
+# 🧑‍🎓student-land
 
-Frontend application for managing students (CRUD, filtering, sorting, and profile management).
-This project was built as a test assignment with a strong focus on **frontend architecture, scalability, and developer experience**.
 
 # Tech Stack
+- Feature Sliced Design
 - React 19
 - TypeScript
 - React Router
@@ -22,7 +21,7 @@ This project was built as a test assignment with a strong focus on **frontend ar
 - import sorting via simple-import-sort
 - Prettier formatting
 - TypeScript strict mode
-- typecheck CI-ready script
+- Pre-commit lefthook
 
 ## 🚀 How to run project
 
