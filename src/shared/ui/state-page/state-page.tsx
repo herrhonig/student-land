@@ -47,7 +47,7 @@ export const StatePage = ({
     <div
       className={cn(
         "flex flex-col items-center justify-center gap-3 px-4 text-center",
-        isPage ? "min-h-screen" : "h-[300px]",
+        isPage ? "mt-72 h-full" : "h-[300px]",
       )}
     >
       <h2

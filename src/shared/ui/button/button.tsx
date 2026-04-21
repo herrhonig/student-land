@@ -13,7 +13,7 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const baseStyles =
-    "rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center";
+    "rounded-lg font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center cursor-pointer";
 
   const variants = {
     primary:

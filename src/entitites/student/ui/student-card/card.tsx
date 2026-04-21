@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router";
+
 import { paths } from "@/shared/const/paths";
 import { dayjs } from "@/shared/lib";
 
@@ -13,6 +15,7 @@ const statusStyles: Record<Student["status"], string> = {
 };
 
 export const StudentCard = ({ student }: StudentCardProps) => {
+  const navigate = useNavigate();
   const { id, registeredAt, name, status, email, course } = student;
 
   return (
@@ -34,12 +37,12 @@ export const StudentCard = ({ student }: StudentCardProps) => {
       </div>
 
       <div className="mt-4 flex justify-end">
-        <a
-          href={`${paths.students.detailsById(id)}`}
-          className="rounded-md bg-black px-3 py-1 text-sm text-white hover:bg-gray-800"
+        <span
+          onClick={() => navigate(paths.students.detailsById(id))}
+          className="cursor-pointer rounded-md bg-black px-3 py-1 text-sm text-white hover:bg-gray-800"
         >
           Open
-        </a>
+        </span>
       </div>
     </div>
   );

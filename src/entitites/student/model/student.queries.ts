@@ -7,7 +7,7 @@ import { studentService } from "./student.service";
 
 export const useGetStudents = () => {
   return useQuery({
-    queryKey: queryKeys.student.list(),
+    queryKey: queryKeys.student.all,
     queryFn: studentService.getStudents,
   });
 };

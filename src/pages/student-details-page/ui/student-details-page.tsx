@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 
 import { paths } from "@/shared/const/paths";
-import { StatePage } from "@/shared/ui";
+import { GoBackButton, StatePage } from "@/shared/ui";
 
 import { StudentEditForm } from "@/features/student-update";
 
@@ -22,12 +22,10 @@ export const StudentDetailsPage = () => {
   return (
     <div className="space-y-4">
       {!isEditing && (
-        <button
+        <GoBackButton
+          label="Back to students"
           onClick={() => navigate(paths.students.root)}
-          className="text-md text-muted-foreground hover:text-foreground cursor-pointer transition"
-        >
-          ← Back to students
-        </button>
+        />
       )}
 
       {!isEditing && (

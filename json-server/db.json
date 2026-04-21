@@ -101,12 +101,24 @@
       "email": "ololol@ya.ru",
       "phone": "+76666666666",
       "course": "DevOps Engineer",
-      "status": "excluded",
+      "status": "active",
       "registeredAt": "2026-04-20",
       "solvedCount": 0,
       "totalTasks": 50,
-      "managerComment": "Too bad :(",
+      "managerComment": "Too bad :( :(",
       "id": "_YTZqEZZSQQ"
+    },
+    {
+      "name": "Yolo Yolo",
+      "email": "ololol@ya.ru",
+      "phone": "+79096445748     ",
+      "course": "Python Developer",
+      "status": "active",
+      "registeredAt": "2026-04-21",
+      "solvedCount": 0,
+      "totalTasks": 50,
+      "managerComment": "",
+      "id": "UZ4vRfjcp4s"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
